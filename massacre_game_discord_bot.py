@@ -11,10 +11,19 @@ import os
 load_dotenv()
 discord_token = os.getenv("DISCORD_TOKEN")
 discord_streaming_url = os.getenv("DISCORD_STREAMING_URL")
+discord_owner_id = os.getenv("DISCORD_OWNER_ID")
+
+if not discord_token or not discord_owner_id:
+    raise RuntimeError("DISCORD_TOKEN and DISCORD_OWNER_ID environment variables are required.")
+
+try:
+    discord_owner_id = int(discord_owner_id)
+except ValueError as error:
+    raise RuntimeError("DISCORD_OWNER_ID must be a numeric Discord user ID.") from error
 
 print("Started")
 # Sets all the bots information
-bot = commands.Bot(command_prefix="!", case_insensitive=True, description='A Buushy Product', owner_id=296366982599671809, activity=discord.Streaming(name="PrivateBot", url=discord_streaming_url))
+bot = commands.Bot(command_prefix="!", case_insensitive=True, description='A Buushy Product', owner_id=discord_owner_id, activity=discord.Streaming(name="PrivateBot", url=discord_streaming_url))
 # Removes the default help command
 bot.remove_command("help")
 
