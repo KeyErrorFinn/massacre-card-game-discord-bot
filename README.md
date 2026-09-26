@@ -2,6 +2,12 @@
 
 [![Last commit](https://img.shields.io/github/last-commit/KeyErrorFinn/massacre-card-game-discord-bot)](https://github.com/KeyErrorFinn/massacre-card-game-discord-bot/commits/main) [![Issues](https://img.shields.io/github/issues/KeyErrorFinn/massacre-card-game-discord-bot)](https://github.com/KeyErrorFinn/massacre-card-game-discord-bot/issues)
 
+<p align="center">
+  <img alt="Python" src="https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=fff" />
+  <img alt="discord.py" src="https://img.shields.io/badge/discord.py-5865F2?logo=discord&logoColor=fff" />
+  <img alt="dotenv" src="https://img.shields.io/badge/dotenv-ECD53F?logo=dotenv&logoColor=000" />
+</p>
+
 A Discord bot that runs a two-player implementation of the card game Massacre through commands and private-message embeds.
 
 ## Requirements
