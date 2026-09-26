@@ -2,21 +2,22 @@
 
 A Discord bot that runs a two-player implementation of the card game Massacre through commands and private-message embeds.
 
-## How it works
+## Requirements
 
-The bot maintains one active game in memory. It builds a standard card deck plus jokers, deals each player hidden, shown, and hand cards, determines turns, validates plays, handles pile burns and pickups, and updates each player's private embed view. Players can accept invitations, prepare their layout during intermission, play the game, leave, and opt into a rematch.
+- Python 3
+- `discord.py==1.7.3`
+- `python-dotenv==0.21.1`
+- A Discord bot application and token
 
-The command prefix is `!`. The source includes aliases and usage feedback for actions such as inviting a player, swapping cards, picking up the pile, becoming ready, and cancelling.
+This code targets the legacy discord.py 1.7 API and may require migration for current Discord behaviour.
 
 ## Setup
-
-This project uses the older `discord.py 1.7.3` API listed in `requirements.txt`.
 
 ```bash
 python -m pip install -r requirements.txt
 ```
 
-Copy `.env.example` to `.env` and set:
+Copy `.env.example` to `.env`:
 
 ```dotenv
 DISCORD_TOKEN=your_bot_token
@@ -24,15 +25,38 @@ DISCORD_STREAMING_URL=https://example.com
 DISCORD_OWNER_ID=your_numeric_discord_user_id
 ```
 
-Enable the intents required by this older command-based bot in the Discord developer portal, invite the bot to a test server, and run:
+`DISCORD_TOKEN` and a numeric `DISCORD_OWNER_ID` are required. The streaming URL is used for the bot's activity. Never commit the populated file.
+
+Invite the bot to a test server with the required message permissions, then run:
 
 ```bash
 python massacre_game_discord_bot.py
 ```
 
-## Limitations
+## How games work
 
-- Game state is stored only in memory and is lost when the process restarts.
-- The implementation supports a single shared game rather than independent games per server/channel.
-- `discord.py 1.7.3` is legacy software; migration may be required for current Discord API behaviour.
-- Never commit the populated `.env` file or bot token.
+The bot maintains one shared game in memory. It constructs a standard deck plus two jokers, deals hidden, shown, and hand cards, determines the first turn, validates moves, handles pickups and pile burns, and sends each player a private embed view. Both players can ready up for the initial game and rematches.
+
+State is lost when the process exits, and the implementation does not isolate independent games by server or channel.
+
+## Command reference
+
+The prefix is `!`; commands and aliases are case-insensitive.
+
+| Command | Aliases | Purpose |
+| --- | --- | --- |
+| `!game` | `!g` | Create, invite, accept, and manage a game |
+| `!MPlace <card>` | `!mp`, `!place` | Place a card during gameplay |
+| `!MPickUp` | `!mpu`, `!pickup` | Pick up the pile |
+| `!MSwap <hand-card> <shown-card>` | `!ms`, `!swap` | Swap cards during intermission |
+| `!MReady` | `!mr`, `!ready` | Mark yourself ready |
+| `!MCancel` | `!mc`, `!cancel` | Cancel the current game/rematch |
+| `!MLeave` | `!leave` | Leave the game |
+| `!MHelp` | `!mh`, `!help` | Show bot help |
+| `!Ping` | — | Check whether the bot is responsive |
+
+Card arguments use suit/value codes shown by the bot, such as `C5` or `S2`. The bot provides contextual usage errors when an argument is missing or invalid.
+
+## Main source structure
+
+`massacre_game_discord_bot.py` contains the Discord configuration, in-memory state, deck creation, dealing and sorting, embed rendering, game loop, rule validation, and command handlers.
