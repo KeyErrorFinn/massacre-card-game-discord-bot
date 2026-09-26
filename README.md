@@ -64,13 +64,15 @@ The prefix is `!`; commands and aliases are case-insensitive.
 | `!MCancel` | `!mc`, `!cancel` | Cancel the current game/rematch |
 | `!MLeave` | `!leave` | Leave the game |
 | `!MHelp` | `!mh`, `!help` | Show bot help |
-| `!Ping` |  -  | Check whether the bot is responsive |
+| `!Ping` | None | Check whether the bot is responsive |
 
 Card arguments use suit/value codes shown by the bot, such as `C5` or `S2`. The bot provides contextual usage errors when an argument is missing or invalid.
 
 ## Main source structure
 
 `massacre_game_discord_bot.py` contains the Discord configuration, in-memory state, deck creation, dealing and sorting, embed rendering, game loop, rule validation, and command handlers.
+
+<!-- documentation-extras -->
 
 ## Project flow
 
@@ -81,3 +83,20 @@ flowchart LR
     Rules --> Embeds["Private player embeds"]
     Embeds --> Commands
 ```
+
+<details>
+<summary>Documentation and maintenance notes</summary>
+
+- Commands and behaviour in this README are derived from the files currently committed to the repository.
+- External services, games, websites, browser APIs, and file formats can change independently of this project.
+- When reporting a problem, include the operating system, runtime version, exact command, and complete error text with secrets removed.
+
+</details>
+
+## Contributing
+
+Focused fixes are welcome. Before changing behaviour, open an issue describing the problem and intended result. Keep credentials, generated secrets, personal data, and machine-specific configuration out of commits. Update this README whenever commands, configuration, paths, or supported behaviour change.
+
+## Licence
+
+No project-level licence is currently declared in this repository. Copyright remains with the repository owner and other contributors; obtain permission before redistributing or incorporating the code elsewhere. Third-party assets and dependencies retain their own licences.
