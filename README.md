@@ -6,6 +6,7 @@
 </p>
 
 <p align="center">
+  <img alt="Deployment inactive" src="https://img.shields.io/badge/deployment-inactive-lightgrey" />
   <img alt="Python" src="https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=fff" />
   <img alt="discord.py" src="https://img.shields.io/badge/discord.py-5865F2?logo=discord&logoColor=fff" />
   <img alt="dotenv" src="https://img.shields.io/badge/dotenv-ECD53F?logo=dotenv&logoColor=000" />
@@ -21,6 +22,8 @@ A Discord bot that runs a two-player implementation of the card game Massacre th
 - A Discord bot application and token
 
 This code targets the legacy discord.py 1.7 API and may require migration for current Discord behaviour.
+
+The former Raspberry Pi deployment is no longer running. Its GitHub Actions workflow is retained as a historical deployment example but is disabled.
 
 ## Setup
 
