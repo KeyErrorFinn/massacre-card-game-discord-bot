@@ -23,7 +23,7 @@ A Discord bot that runs a two-player implementation of the card game Massacre th
 
 This code targets the legacy discord.py 1.7 API and may require migration for current Discord behaviour.
 
-The former Raspberry Pi deployment is no longer running. Its GitHub Actions workflow is retained as a historical deployment example but is disabled.
+The former Raspberry Pi deployment is no longer running. Its GitHub Actions workflow is retained as a historical deployment example, has no automatic trigger, and is disabled in GitHub.
 
 ## Setup
 

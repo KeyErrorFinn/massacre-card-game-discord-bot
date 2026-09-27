@@ -1,9 +1,7 @@
 name: Deploy to Raspberry Pi
 
 on:
-  push:
-    branches:
-      - main  # Trigger the deployment when code is pushed to the main branch
+  # Historical deployment, kept for reference and available only by deliberate manual dispatch.
   workflow_dispatch:
 
 jobs:
