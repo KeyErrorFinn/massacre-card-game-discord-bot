@@ -1,7 +1,7 @@
 # Massacre Card Game Discord Bot
 
 <p align="center">
-  <img src="assets/logo.svg" alt="massacre-card-game-discord-bot logo" width="480" />
+  <img src="assets/logo.png" alt="massacre-card-game-discord-bot logo" width="480" />
 </p>
 
 <p align="center">
